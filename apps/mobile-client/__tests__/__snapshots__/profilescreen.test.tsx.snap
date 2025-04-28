@@ -1,0 +1,348 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileScreen reenders correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    [
+      {
+        "backgroundColor": "#fff",
+        "borderBottomLeftRadius": 25,
+        "borderBottomRightRadius": 25,
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "transparent",
+          "flex": 1,
+          "marginHorizontal": 24,
+          "marginVertical": 16,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginBottom": 16,
+            "paddingVertical": 8,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "borderColor": "#FF9900",
+              "borderRadius": 100,
+              "borderWidth": 2,
+              "marginRight": 16,
+              "padding": 8,
+            },
+          ]
+        }
+      >
+        <Text />
+      </View>
+      <Text
+        style={
+          [
+            {
+              "fontSize": 22,
+              "fontWeight": "500",
+            },
+          ]
+        }
+      >
+        profileScreen.welcome
+      </Text>
+    </View>
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "flex": 1,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "fontSize": 20,
+                "fontWeight": "600",
+              },
+            ]
+          }
+        >
+          profileScreen.borrowedBooks
+        </Text>
+        <Text
+          style={
+            [
+              {
+                "color": "#828282",
+                "fontSize": 13,
+              },
+            ]
+          }
+        >
+          profileScreen.borrowedBooksDetails
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        [
+          {
+            "justifyContent": "center",
+            "marginVertical": 24,
+          },
+        ]
+      }
+    />
+    <View
+      style={
+        [
+          {},
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "fontSize": 20,
+              "fontWeight": "600",
+            },
+          ]
+        }
+      >
+        profileScreen.settings
+      </Text>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#fff",
+              "borderRadius": 25,
+              "marginVertical": 16,
+              "paddingHorizontal": 16,
+              "paddingVertical": 8,
+            },
+            {
+              "elevation": 5,
+              "shadowColor": "#000",
+              "shadowOffset": {
+                "height": 1,
+                "width": 0,
+              },
+              "shadowOpacity": 0.05,
+              "shadowRadius": 3.84,
+            },
+          ]
+        }
+      >
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "gap": 8,
+              "height": 50,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text />
+          <Text
+            style={
+              [
+                {
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                },
+              ]
+            }
+          >
+            profileScreen.account
+          </Text>
+        </View>
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "gap": 8,
+              "height": 50,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text />
+          <Text
+            style={
+              [
+                {
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                },
+              ]
+            }
+          >
+            profileScreen.account
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#fff",
+              "borderRadius": 25,
+              "marginVertical": 16,
+              "paddingHorizontal": 16,
+              "paddingVertical": 8,
+            },
+            {
+              "elevation": 5,
+              "shadowColor": "#000",
+              "shadowOffset": {
+                "height": 1,
+                "width": 0,
+              },
+              "shadowOpacity": 0.05,
+              "shadowRadius": 3.84,
+            },
+          ]
+        }
+      >
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "gap": 8,
+              "height": 50,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text />
+          <Text
+            style={
+              [
+                {
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                },
+              ]
+            }
+          >
+            profileScreen.logout
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;

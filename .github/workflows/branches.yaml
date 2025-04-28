@@ -1,0 +1,42 @@
+name: "Assert Branch Naming Convention"
+on: pull_request
+
+jobs:
+  branch-naming-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout repository"
+        id: "checoutRepo"
+        uses: actions/checkout@v1
+
+      - name: "Get Current Pull Request ID"
+        uses: jwalton/gh-find-current-pr@v1
+        id: findPr
+        with:
+          state: open
+
+      - name: "Checking PR"
+        run: echo "Your PR is ${PR}"
+        if: success() && steps.findPr.outputs.number
+        env:
+          PR: ${{ steps.findPr.outputs.pr }}
+
+      - name: "Check Branch Name Convention"
+        id: "branchName"
+        uses: deepakputhraya/action-branch-name@master
+        with:
+          regex: '([a-z])+\/([a-z])+'
+          allowed_prefixes: "feature,fix,github,backend,app,misc,docs,sandbox"
+          ignore: master,develop
+          min_length: 5
+          max_length: 30
+
+      - name: "Comment on PR"
+        id: "commentPr"
+        uses: peter-evans/create-or-update-comment@v2
+        if: steps.branchName.outcome == 'success'
+        with:
+          token: ${{ secrets.GH_COMMENT }}
+          issue-number: ${{ steps.findPr.outputs.pr }}
+          body: |
+            Testing

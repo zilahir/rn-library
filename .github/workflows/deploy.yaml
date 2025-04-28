@@ -1,0 +1,268 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - release
+  workflow_dispatch:
+
+jobs:
+  build-backend-docs:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    name: "Server Docs"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "Setup"
+        uses: ./.github/actions/setup
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+      - name: "Build Server Docs"
+        working-directory: ./apps/server
+        run: pnpm run docs:gen
+
+      - name: Archive Backend Docs
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-docs
+          path: ./apps/server/documentation
+          retention-days: 1
+
+  build-jsdocs:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    name: "JSDocs"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "Setup"
+        uses: ./.github/actions/setup
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+      - name: "Build JSDocs"
+        working-directory: ./apps/mobile-client
+        run: pnpm run docs
+
+      - name: Archive JSDocs
+        uses: actions/upload-artifact@v3
+        with:
+          name: jsdocs
+          path: ./apps/mobile-client/docs
+          retention-days: 1
+
+  test:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    name: "Tests"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "Setup"
+        uses: ./.github/actions/setup
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+
+      - name: "Run Backend Tests"
+        working-directory: ./apps/server
+        run: pnpm run test:cov
+
+      - name: "Run React Native Tests"
+        working-directory: ./apps/mobile-client
+        run: pnpm run test
+
+      - name: Archive Backend test coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-code-coverage-report
+          path: ./apps/server/coverage
+          retention-days: 1
+
+      - name: Archive React Native test coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: rn-code-coverage-report
+          path: ./apps/mobile-client/coverage/lcov-report
+          retention-days: 1
+
+  deploy-codecov:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    name: "Deploy Codecov Server"
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "Setup"
+        uses: ./.github/actions/setup
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+
+      - name: "Get AWS CDK output values"
+        working-directory: ./packages/cdk
+        run: mkdir -p ./output && pnpm run init:stack:static:codecov
+
+      - name: Get AWS CDK Values
+        id: set-matrix
+        working-directory: ./packages/cdk
+        run: |
+          PARSED_JSON=$(jq -c -r '.["backend-codecov-static"]' ./output/codecov-static.json)
+          echo "matrix=$PARSED_JSON" >> "$GITHUB_OUTPUT"
+
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: backend-code-coverage-report
+          path: ./coverage
+
+      - name: "Copy Artifacts To S3"
+        id: "upload-s3"
+        env:
+          MATRIX: ${{ steps.set-matrix.outputs.matrix }}
+        run: |
+          aws s3 sync ./coverage s3://${{fromJson(steps.set-matrix.outputs.MATRIX).staticbucketurlbackendcodecovstatic}}/
+          aws cloudfront create-invalidation --distribution-id ${{fromJson(steps.set-matrix.outputs.MATRIX).staticdistroidbackendcodecovstatic}} --paths "/"
+
+  deploy-codecov-app:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    name: "Deploy Codecov Server"
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "Setup"
+        uses: ./.github/actions/setup
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+
+      - name: "Get AWS CDK output values"
+        working-directory: ./packages/cdk
+        run: mkdir -p ./output && pnpm run init:stack:static:codecovapp
+
+      - name: Get AWS CDK Values
+        id: set-matrix
+        working-directory: ./packages/cdk
+        run: |
+          PARSED_JSON=$(jq -c -r '.["app-codecov-static"]' ./output/app-codecov-static.json)
+          echo "matrix=$PARSED_JSON" >> "$GITHUB_OUTPUT"
+
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: rn-code-coverage-report
+          path: ./coverage
+
+      - name: "Copy Artifacts To S3"
+        id: "upload-s3"
+        env:
+          MATRIX: ${{ steps.set-matrix.outputs.matrix }}
+        run: |
+          aws s3 sync ./coverage s3://${{fromJson(steps.set-matrix.outputs.MATRIX).staticbucketurlappcodecovstatic}}/
+          aws cloudfront create-invalidation --distribution-id ${{fromJson(steps.set-matrix.outputs.MATRIX).staticdistroidappcodecovstatic}} --paths "/"
+
+  deploy-server-docs:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    name: "Deploy Backend Docs"
+    needs: build-backend-docs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "Setup"
+        uses: ./.github/actions/setup
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+
+      - name: "Get AWS CDK output values"
+        working-directory: ./packages/cdk
+        run: mkdir -p ./output && pnpm run init:stack:static:docs
+
+      - name: Get AWS CDK Values
+        id: set-matrix
+        working-directory: ./packages/cdk
+        run: |
+          PARSED_JSON=$(jq -c -r '.["backend-docs-static"]' ./output/docs-static.json)
+          echo "matrix=$PARSED_JSON" >> "$GITHUB_OUTPUT"
+
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: backend-docs
+          path: ./documentation
+
+      - name: "Copy Artifacts To S3"
+        id: "upload-s3"
+        env:
+          MATRIX: ${{ steps.set-matrix.outputs.matrix }}
+        run: |
+          aws s3 sync ./documentation s3://${{fromJson(steps.set-matrix.outputs.MATRIX).staticbucketurlbackenddocsstatic}}/
+          aws cloudfront create-invalidation --distribution-id ${{fromJson(steps.set-matrix.outputs.MATRIX).staticdistroidbackenddocsstatic}} --paths "/"
+
+  deploy-jsdocs:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    name: "Deploy JS Docs"
+    needs: build-jsdocs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "Setup"
+        uses: ./.github/actions/setup
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+
+      - name: "Get AWS CDK output values"
+        working-directory: ./packages/cdk
+        run: mkdir -p ./output && pnpm run init:stack:static:jsdocs
+
+      - name: Get AWS CDK Values
+        id: set-matrix
+        working-directory: ./packages/cdk
+        run: |
+          PARSED_JSON=$(jq -c -r '.["app-jsdocs-static"]' ./output/jsdocs-static.json)
+          echo "matrix=$PARSED_JSON" >> "$GITHUB_OUTPUT"
+
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: jsdocs
+          path: ./docs
+
+      - name: "Copy Artifacts To S3"
+        id: "upload-s3"
+        env:
+          MATRIX: ${{ steps.set-matrix.outputs.matrix }}
+        run: |
+          aws s3 sync ./docs s3://${{fromJson(steps.set-matrix.outputs.MATRIX).staticbucketurlappjsdocsstatic}}/
+          aws cloudfront create-invalidation --distribution-id ${{fromJson(steps.set-matrix.outputs.MATRIX).staticdistroidappjsdocsstatic}} --paths "/"

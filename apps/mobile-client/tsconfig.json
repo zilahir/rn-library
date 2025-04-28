@@ -1,0 +1,35 @@
+{
+  "extends": "expo/tsconfig.base",
+  "include": [
+    "src",
+    "./App.tsx",
+    "./index.ts",
+    "jest.config.ts",
+    "jest.setup.ts",
+    "./__tests__",
+    "./__tests__/utils"
+  ],
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "moduleResolution": "nodenext",
+    "module": "NodeNext",
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["./src/*"]
+    },
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "typeRoots": [
+      "node_modules/@types",
+      "./src/types",
+      "../../node_modules/@types"
+    ],
+    "types": ["node", "jest"]
+  }
+}

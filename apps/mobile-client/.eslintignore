@@ -1,0 +1,4 @@
+metro.config.js
+/**/*.d.ts
+babel.config.js
+app.config.js

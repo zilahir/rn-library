@@ -1,0 +1,28 @@
+{
+  "name": "halkeinkiven-pikkukirjasto",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "husky install",
+    "cm": "cz",
+    "release-debug": "npx semantic-release --dry-run --debug --no-ci",
+    "release": "npx semantic-release"
+  },
+  "private": true,
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^9.2.1",
+    "commitizen": "^4.3.0",
+    "conventional-changelog-conventionalcommits": "^7.0.2",
+    "cz-git": "^1.6.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.2",
+    "nx": "16.2.1",
+    "semantic-release": "^22.0.5"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

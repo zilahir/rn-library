@@ -1,0 +1,47 @@
+name: Setup CI environment
+description: This action is used in different steps to setup the environment for Github Workflows
+inputs:
+  aws-access-key-id:
+    required: true
+    description: "The aws-access-key-id used to authenticate with AWS"
+  aws-secret-access-key:
+    required: true
+    description: "The aws-secret-access-key used to authenticate with AWS"
+
+runs:
+  using: composite
+  steps:
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: "pnpm"
+
+    - name: Get pnpm store directory
+      shell: bash
+      run: |
+        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+    - uses: actions/cache@v3
+      name: Setup pnpm cache
+      with:
+        path: ${{ env.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install
+
+    - uses: aws-actions/configure-aws-credentials@v2
+      name: Configure AWS Credentials
+      with:
+        aws-access-key-id: ${{ inputs.aws-access-key-id }}
+        aws-secret-access-key: ${{ inputs.aws-secret-access-key }}
+        aws-region: eu-west-1

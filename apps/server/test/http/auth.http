@@ -1,0 +1,6 @@
+POST http://localhost:3003/auth HTTP/1.1
+content-type: application/json
+
+{
+    "deviceId": "642E86A4-3BF9-42E0-9C72-4C0EF86C3ED9"
+}

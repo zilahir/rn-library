@@ -1,0 +1,369 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BorrowBookScreen renders correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    [
+      {
+        "backgroundColor": "#fff",
+        "borderBottomLeftRadius": 25,
+        "borderBottomRightRadius": 25,
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "backgroundColor": "rgba(247, 247, 247, 1)",
+            "justifyContent": "center",
+            "padding": 16,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "elevation": 11,
+              "shadowColor": "#000",
+              "shadowOffset": {
+                "height": 5,
+                "width": 0,
+              },
+              "shadowOpacity": 0.36,
+              "shadowRadius": 6.68,
+            },
+          ]
+        }
+      >
+        <Image
+          source={
+            {
+              "uri": undefined,
+            }
+          }
+          style={
+            [
+              {
+                "aspectRatio": 0.6666666666666666,
+                "borderRadius": 10,
+                "width": 160,
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "space-evenly",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {},
+          ]
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "textAlign": "center",
+              },
+              {
+                "fontSize": 20,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          Hello World
+        </Text>
+        <Text
+          style={
+            [
+              {
+                "textAlign": "center",
+              },
+              {
+                "fontSize": 15,
+              },
+            ]
+          }
+        >
+          John Doe
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "rgba(247, 247, 247, 1)",
+            "borderColor": "rgba(255, 153, 0, 0.05)",
+            "borderRadius": 10,
+            "borderWidth": 2,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "marginHorizontal": 16,
+            "marginVertical": 16,
+            "paddingHorizontal": 16,
+            "paddingVertical": 8,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignContent": "stretch",
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "flex": 1,
+              "gap": 8,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                undefined,
+              ]
+            }
+          >
+            bookMeta.rate
+          </Text>
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "gap": 8,
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <Text />
+            <Text
+              style={
+                [
+                  undefined,
+                ]
+              }
+            >
+              4.0
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "alignContent": "stretch",
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "flex": 1,
+              "gap": 8,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                undefined,
+              ]
+            }
+          >
+            bookMeta.numOfPages
+          </Text>
+          <Text>
+<<<<<<< HEAD
+            340
+=======
+            821
+>>>>>>> a27136c (bookscreen tests)
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "alignContent": "stretch",
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "flex": 1,
+              "gap": 8,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                undefined,
+              ]
+            }
+          >
+            bookMeta.language
+          </Text>
+          <Text>
+            🇫🇮
+          </Text>
+        </View>
+      </View>
+      <View>
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "backgroundColor": "#ffcac7",
+                "borderRadius": 25,
+                "flexDirection": "row",
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              },
+            ]
+          }
+        >
+          <Text />
+          <Text
+            style={
+              [
+                {
+                  "color": "#ff372e",
+                  "fontSize": 14,
+                },
+              ]
+            }
+          >
+            bookMeta.isAvaliable.false
+          </Text>
+        </View>
+      </View>
+      <View>
+        <View
+          style={
+            [
+              {
+                "paddingHorizontal": 16,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "fontSize": 20,
+                  "fontWeight": "bold",
+                  "marginBottom": 8,
+                },
+              ]
+            }
+          >
+            bookMeta.overview
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "alignSelf": "stretch",
+            "paddingHorizontal": 16,
+          }
+        }
+      >
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "#FF9900",
+              "borderRadius": 25,
+              "height": 50,
+              "justifyContent": "center",
+              "opacity": 1,
+              "textAlign": "center",
+            }
+          }
+          testID="Rent"
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#fff",
+                  "fontSize": 16,
+                  "fontWeight": 500,
+                },
+              ]
+            }
+          >
+            Rent
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;

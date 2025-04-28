@@ -1,0 +1,51 @@
+{
+  "root": true,
+  "env": {
+    "jest": true
+  },
+  "extends": "pikkukirjasto/react",
+  "ignorePatterns": ["*.test.ts"],
+  "settings": {
+    "import/ignore": ["\\lodash", "\\.*-reanimated"],
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json",
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "import/no-unresolved": [
+      2,
+      { "ignore": ["\\pikkukirjasto-.*", "\\.*-reanimated"] }
+    ],
+    "react/no-unstable-nested-components": [
+      "error",
+      {
+        "allowAsProps": true,
+        "customValidators": ["tabBar"]
+      }
+    ],
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "exceptions": ["TabBar", "BookItem", "Header", "ScreenComponent"]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.tsx"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}

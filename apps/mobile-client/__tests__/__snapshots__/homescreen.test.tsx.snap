@@ -1,0 +1,597 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeScreen renders correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    [
+      {
+        "backgroundColor": "#fff",
+        "borderBottomLeftRadius": 25,
+        "borderBottomRightRadius": 25,
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "backgroundColor": "transparent",
+          "flex": 1,
+          "marginHorizontal": 24,
+          "marginVertical": 16,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "marginBottom": 32,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "rgba(51, 51, 51, 1)",
+              "fontSize": 26,
+              "fontWeight": "bold",
+            },
+          ]
+        }
+      >
+        homeScreen.title
+      </Text>
+    </View>
+    <RCTScrollView
+      horizontal={false}
+      showsVerticalScrollIndicator={false}
+    >
+      <View>
+        <View
+          testID="1"
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginBottom": 16,
+                "opacity": 1,
+              }
+            }
+            testID="search-bar"
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "backgroundColor": "rgba(247, 247, 247, 1)",
+                    "borderRadius": 10,
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "height": 40,
+                    "paddingHorizontal": 8,
+                  },
+                ]
+              }
+            >
+              <Text />
+              <TextInput
+                editable={false}
+                placeholder="Search"
+                placeholderTextColor="rgba(247, 247, 247, 1)"
+                style={
+                  [
+                    {
+                      "color": "#828282",
+                      "flex": 1,
+                      "fontSize": 14,
+                      "paddingLeft": 10,
+                    },
+                  ]
+                }
+                testID="text-input"
+                value=""
+              />
+            </View>
+          </View>
+          <View
+            style={
+              [
+                {
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "marginVertical": 8,
+                },
+              ]
+            }
+          >
+            <View>
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#333333",
+                      "fontSize": 22,
+                      "fontWeight": 500,
+                    },
+                    [
+                      undefined,
+                    ],
+                  ]
+                }
+              >
+                libraryScreen.featured
+              </Text>
+            </View>
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "flex-start",
+                    "backgroundColor": "#fff",
+                    "borderRadius": 10,
+                    "flexDirection": "row",
+                    "gap": 16,
+                    "marginBottom": 16,
+                    "overflow": "hidden",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "flex": 1,
+                    },
+                  ]
+                }
+              >
+                <View>
+                  <View
+                    collapsable={false}
+                    handlerTag={1}
+                    handlerType="PanGestureHandler"
+                    onGestureHandlerEvent={[Function]}
+                    onGestureHandlerStateChange={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchStart={[Function]}
+                    style={
+                      [
+                        {
+                          "overflow": "hidden",
+                        },
+                        {
+                          "height": 750,
+                          "width": 718,
+                        },
+                        [
+                          {
+                            "height": 220,
+                            "justifyContent": "center",
+                            "width": "100%",
+                          },
+                        ],
+                        {
+                          "flexDirection": "row",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        [
+                          {
+                            "height": 750,
+                            "position": "absolute",
+                            "width": 718,
+                          },
+                          {
+                            "opacity": undefined,
+                            "transform": [
+                              {
+                                "scale": undefined,
+                              },
+                              {
+                                "translateX": undefined,
+                              },
+                            ],
+                            "zIndex": undefined,
+                          },
+                        ]
+                      }
+                      testID="__CAROUSEL_ITEM_0_NOT_READY__"
+                    />
+                    <View
+                      style={
+                        [
+                          {
+                            "height": 750,
+                            "position": "absolute",
+                            "width": 718,
+                          },
+                          {
+                            "opacity": undefined,
+                            "transform": [
+                              {
+                                "scale": undefined,
+                              },
+                              {
+                                "translateX": undefined,
+                              },
+                            ],
+                            "zIndex": undefined,
+                          },
+                        ]
+                      }
+                      testID="__CAROUSEL_ITEM_1_NOT_READY__"
+                    />
+                    <View
+                      style={
+                        [
+                          {
+                            "height": 750,
+                            "position": "absolute",
+                            "width": 718,
+                          },
+                          {
+                            "opacity": undefined,
+                            "transform": [
+                              {
+                                "scale": undefined,
+                              },
+                              {
+                                "translateX": undefined,
+                              },
+                            ],
+                            "zIndex": undefined,
+                          },
+                        ]
+                      }
+                      testID="__CAROUSEL_ITEM_2_NOT_READY__"
+                    />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              [
+                {
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "marginVertical": 8,
+                },
+              ]
+            }
+          >
+            <View>
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#333333",
+                      "fontSize": 22,
+                      "fontWeight": 500,
+                    },
+                    [
+                      undefined,
+                    ],
+                  ]
+                }
+              >
+                libraryScreen.popular
+              </Text>
+            </View>
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "flex-start",
+                    "backgroundColor": "#fff",
+                    "borderRadius": 10,
+                    "flexDirection": "row",
+                    "gap": 16,
+                    "marginBottom": 16,
+                    "overflow": "hidden",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "flex": 1,
+                    },
+                  ]
+                }
+              >
+                <View>
+                  <View
+                    collapsable={false}
+                    handlerTag={2}
+                    handlerType="PanGestureHandler"
+                    onGestureHandlerEvent={[Function]}
+                    onGestureHandlerStateChange={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchStart={[Function]}
+                    style={
+                      [
+                        {
+                          "overflow": "hidden",
+                        },
+                        {
+                          "height": 750,
+                          "width": 718,
+                        },
+                        [
+                          {
+                            "height": 220,
+                            "justifyContent": "center",
+                            "width": "100%",
+                          },
+                        ],
+                        {
+                          "flexDirection": "row",
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        [
+                          {
+                            "height": 750,
+                            "position": "absolute",
+                            "width": 718,
+                          },
+                          {
+                            "opacity": undefined,
+                            "transform": [
+                              {
+                                "scale": undefined,
+                              },
+                              {
+                                "translateX": undefined,
+                              },
+                            ],
+                            "zIndex": undefined,
+                          },
+                        ]
+                      }
+                      testID="__CAROUSEL_ITEM_0_NOT_READY__"
+                    />
+                    <View
+                      style={
+                        [
+                          {
+                            "height": 750,
+                            "position": "absolute",
+                            "width": 718,
+                          },
+                          {
+                            "opacity": undefined,
+                            "transform": [
+                              {
+                                "scale": undefined,
+                              },
+                              {
+                                "translateX": undefined,
+                              },
+                            ],
+                            "zIndex": undefined,
+                          },
+                        ]
+                      }
+                      testID="__CAROUSEL_ITEM_1_NOT_READY__"
+                    />
+                    <View
+                      style={
+                        [
+                          {
+                            "height": 750,
+                            "position": "absolute",
+                            "width": 718,
+                          },
+                          {
+                            "opacity": undefined,
+                            "transform": [
+                              {
+                                "scale": undefined,
+                              },
+                              {
+                                "translateX": undefined,
+                              },
+                            ],
+                            "zIndex": undefined,
+                          },
+                        ]
+                      }
+                      testID="__CAROUSEL_ITEM_2_NOT_READY__"
+                    />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              [
+                {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "marginBottom": 16,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#333333",
+                      "fontSize": 22,
+                      "fontWeight": 500,
+                    },
+                    [
+                      undefined,
+                    ],
+                  ]
+                }
+              >
+                libraryScreen.all
+              </Text>
+              <View>
+                <RNGestureHandlerButton
+                  collapsable={false}
+                  delayLongPress={600}
+                  enabled={true}
+                  exclusive={true}
+                  handlerTag={3}
+                  handlerType="NativeViewGestureHandler"
+                  onGestureEvent={[Function]}
+                  onGestureHandlerEvent={[Function]}
+                  onGestureHandlerStateChange={[Function]}
+                  onHandlerStateChange={[Function]}
+                  rippleColor={0}
+                  testID="library"
+                  touchSoundDisabled={false}
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        [
+                          {
+                            "backgroundColor": "rgba(255, 153, 0, 0.05)",
+                            "borderColor": "#FF9900",
+                            "borderRadius": 25,
+                            "borderWidth": 2,
+                            "paddingHorizontal": 16,
+                            "paddingVertical": 8,
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#FF9900",
+                              "fontSize": 13,
+                              "fontWeight": "bold",
+                            },
+                          ]
+                        }
+                      >
+                        libraryScreen.all
+                      </Text>
+                    </View>
+                  </View>
+                </RNGestureHandlerButton>
+              </View>
+            </View>
+            <View
+              style={
+                [
+                  {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <RCTScrollView
+                ItemSeparatorComponent={[Function]}
+                contentContainerStyle={
+                  {
+                    "alignContent": "center",
+                    "alignItems": "center",
+                    "justifyContent": "space-between",
+                    "marginTop": 16,
+                  }
+                }
+                data={[]}
+                getItem={[Function]}
+                getItemCount={[Function]}
+                keyExtractor={[Function]}
+                nestedScrollEnabled={false}
+                onContentSizeChange={[Function]}
+                onLayout={[Function]}
+                onMomentumScrollBegin={[Function]}
+                onMomentumScrollEnd={[Function]}
+                onScroll={[Function]}
+                onScrollBeginDrag={[Function]}
+                onScrollEndDrag={[Function]}
+                removeClippedSubviews={false}
+                renderItem={[Function]}
+                scrollEventThrottle={50}
+                showsVerticalScrollIndicator={false}
+                stickyHeaderIndices={[]}
+                viewabilityConfigCallbackPairs={[]}
+              >
+                <View />
+              </RCTScrollView>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</RCTSafeAreaView>
+`;

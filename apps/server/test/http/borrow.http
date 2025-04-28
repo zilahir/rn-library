@@ -1,0 +1,7 @@
+POST http://localhost:3003/borrow HTTP/1.1
+content-type: application/json
+
+{
+    "isbn": "978-9510-42301-1",
+    "user": "642E86A4-3BF9-42E0-9C72-4C0EF86C3ED9"
+}

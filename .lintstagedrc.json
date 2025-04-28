@@ -1,0 +1,3 @@
+{
+  "./apps/mobile-client/**/*.{ts,tsx,js,jsx}": ["nx lint mobile-client"]
+}

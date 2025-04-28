@@ -1,0 +1,32 @@
+{
+  "name": "eslint-config-pikkukirjasto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files:": [
+    "plugins",
+    "rules",
+    "react.js",
+    "nestjs.js"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@darraghor/eslint-plugin-nestjs-typed": "^3.21.2",
+    "@react-native-community/eslint-config": "^3.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.7",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsdoc": "^44.2.7",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-unicorn": "^47.0.0",
+    "prettier": "^2.3.2"
+  }
+}

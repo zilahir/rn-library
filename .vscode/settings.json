@@ -1,0 +1,99 @@
+{
+  "eslint.lintTask.enable": false,
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "eslint.debug": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.format.enable": true,
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "all",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "eslint.quiet": false,
+  "eslint.useESLintClass": true,
+  "typescript.suggest.jsdoc.generateReturns": true,
+  "typescript.suggest.completeJSDocs": true,
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/*.code-search": true,
+    "**/*.png": true
+  },
+  "javascript.suggest.jsdoc.generateReturns": false,
+  "javascript.suggest.completeJSDocs": false,
+  "jsdoc-generator.author": "zilahir",
+  "jsdoc-generator.descriptionPlaceholder": "Description placeholder",
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "latex-workshop.latex.outDir": "./output",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "lualatex",
+      "command": "lualatex",
+      "args": [
+        "-shell-escape",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-output-directory=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "--shell-escape",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "--shell-escape",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": ["%DOCFILE%"]
+    },
+    {
+      "name": "biber",
+      "command": "biber",
+      "args": ["%DOCFILE%"],
+      "env": {}
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "lualatex",
+      "tools": ["lualatex"]
+    },
+
+    {
+      "name": "pdflatex -> biber -> pdflatex TWICE",
+      "tools": ["pdflatex", "biber", "pdflatex", "pdflatex"]
+    }
+  ]
+}

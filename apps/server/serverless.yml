@@ -1,0 +1,34 @@
+useDotenv: true
+service: pikkurkirjasto-sls
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  profile: zilahir
+  region: eu-central-1
+  environment:
+    DB_URL: ${env:DB_URL}
+    DB_URL_LOCAL: ${env:DB_URL_LOCAL}
+
+package:
+  patterns:
+    - '!.git/**'
+    - '!test/**'
+    - '!e2e/**'
+    - '!src/**'
+    - '!node_modules/**'
+
+functions:
+  main:
+    handler: dist/main.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'

@@ -1,0 +1,43 @@
+{
+  "branches": [
+    {
+      "name": "prod",
+      "prerelease": false
+    },
+    {
+      "name": "staging",
+      "prerelease": true,
+      "channel": "master"
+    }
+  ],
+  "repositoryUrl": "git@github.com:pikkukirjasto/halkeinkiven-pikkukirjasto.git",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "linkCompare": false,
+        "changelogFile": "./CHANGELOG.md",
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "issuePrefixes": [""],
+          "issueUrlFormat": "https://github.com/pikkukirjasto/halkeinkiven-pikkukirjasto/issues/{{id}}"
+        },
+        "config": "conventional-changelog-conventionalcommits",
+        "parserOpts": {
+          "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"]
+        },
+        "writerOpts": {
+          "commitsSort": ["subject", "scope"]
+        }
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": ["./CHANGELOG.md"],
+        "message": "🚀chore(release): ${nextRelease.version}"
+      }
+    ]
+  ]
+}

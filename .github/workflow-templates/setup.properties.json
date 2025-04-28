@@ -1,0 +1,6 @@
+{
+  "name": "Setup Workflow",
+  "description": "Prerequisites for Pikkukirjasto Workflows",
+  "iconName": "octicon-gear",
+  "categories": ["typescript"]
+}
